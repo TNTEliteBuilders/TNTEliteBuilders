@@ -718,7 +718,7 @@ table th:nth-child(4) { text-align: center; }
   <div class="reveal-card" onclick="toggleReveal(this)">
     <img src="https://tntelitebuilders.com/images/Aft1.jpeg" class="base" alt="After">
     <img src="https://tntelitebuilders.com/images/Bef1.jpeg" class="overlay" alt="Before">
-    <div class="label">Tap to view Before</div>
+    <div class="label">View Before</div>
   </div>
 </div>
 
@@ -727,7 +727,7 @@ table th:nth-child(4) { text-align: center; }
   <div class="reveal-card" onclick="toggleReveal(this)">
     <img src="https://tntelitebuilders.com/images/Aft2.jpeg" class="base" alt="After">
     <img src="https://tntelitebuilders.com/images/Bef2.jpeg" class="overlay" alt="Before">
-    <div class="label">Tap to view Before</div>
+    <div class="label">View Before</div>
   </div>
 </div>
 
@@ -736,7 +736,7 @@ table th:nth-child(4) { text-align: center; }
   <div class="reveal-card" onclick="toggleReveal(this)">
     <img src="https://tntelitebuilders.com/images/Aft3.jpeg" class="base" alt="After">
     <img src="https://tntelitebuilders.com/images/Bef3.jpeg" class="overlay" alt="Before">
-    <div class="label">Tap to view Before</div>
+    <div class="label">View Before</div>
   </div>
 </div>
 
@@ -822,9 +822,9 @@ function toggleReveal(el) {
   el.classList.toggle('revealed');
   const label = el.querySelector('.label');
   if (el.classList.contains('revealed')) {
-    label.textContent = 'Tap to view After';
+    label.textContent = 'View After';
   } else {
-    label.textContent = 'Tap to view Before';
+    label.textContent = 'View Before';
   }
 }
 
