@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>404 — Page Not Found | TNT Elite Builders</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="color-scheme" content="dark light" />
+  <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+
+  <style>
+    :root {
+      --bg-deep: #000000;
+      --glass: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.12));
+      --glass-blur: blur(20px);
+      --glass-saturation: saturate(180%);
+      --glass-border: 1px solid rgba(255,255,255,0.15);
+      --glass-shadow: 0 8px 32px rgba(0,0,0,0.25);
+      --brand: #bb0b0bd8;
+      --brand-600: #c50808;
+      --muted: #d0d0d1be;
+      --ink: #e7ecff;
+      --radius-sm: 12px;
+      --aura: 0 6px 12px rgba(189, 22, 22, 0.185);
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, sans-serif;
+      background: var(--bg-deep);
+      color: var(--ink);
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: var(--glass-saturation) var(--glass-blur);
+      background: var(--glass);
+      border-bottom: var(--glass-border);
+    }
+
+    .nav {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .logo {
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      background-image: url('https://tntelitebuilders.com/images/Logo.png');
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      box-shadow: 0 0 0 2px rgba(197, 8, 8, 0.15), 0 10px 20px rgba(197, 8, 8, 0.15);
+    }
+
+    .brand strong {
+      font-weight: 800;
+      color: var(--brand);
+    }
+
+    .brand span {
+      color: var(--muted);
+    }
+
+    .section {
+      max-width: 600px;
+      margin: 80px auto;
+      padding: 0 20px;
+    }
+.grid-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='none' stroke='rgba(255,255,255,0.04)' stroke-width='1'/%3E%3Cline x1='0' y1='0' x2='100' y2='0' stroke='rgba(255,255,255,0.04)' stroke-width='1'/%3E%3Cline x1='0' y1='0' x2='0' y2='100' stroke='rgba(255,255,255,0.04)' stroke-width='1'/%3E%3C/svg%3E");
+  background-size: 100px 100px;
+  background-repeat: repeat;
+  pointer-events: none;
+}
+
+    .glass {
+      background: var(--glass);
+      border: var(--glass-border);
+      border-radius: var(--radius-sm);
+      box-shadow: var(--glass-shadow);
+      backdrop-filter: var(--glass-blur) var(--glass-saturation);
+      padding: 48px 24px;
+      text-align: center;
+    }
+
+.crane-scene {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  margin: 0 auto 24px auto;
+}
+
+.crane {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.crane .arm {
+  position: absolute;
+  top: 20px;
+  left: 0;
+  width: 100%;
+  height: 6px;
+  background: var(--muted);
+  animation: slideIn 1.5s ease-out forwards;
+}
+
+/* Group cable + hook + block so they move together */
+.cable-group {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: lowerGroup 2.5s ease-in-out infinite alternate;
+}
+
+.cable {
+  width: 2px;
+  height: 80px;
+  background: var(--muted);
+  margin: 0 auto;
+}
+
+.hook {
+  width: 16px;
+  height: 16px;
+  background: var(--brand);
+  border-radius: 3px;
+  margin: 4px auto;
+}
+
+.block {
+  background: var(--brand);
+  color: #fff;
+  font-weight: bold;
+  padding: 12px 20px;
+  border-radius: var(--radius-sm);
+  box-shadow: var(--aura);
+  margin: 6px auto 0 auto;
+  animation: swing 2s ease-in-out infinite;
+}
+
+/* Animations */
+@keyframes slideIn {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(0); }
+}
+
+@keyframes lowerGroup {
+  from { transform: translateX(-50%) translateY(0); }
+  to { transform: translateX(-50%) translateY(20px); }
+}
+
+@keyframes swing {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(5deg); }
+}
+
+    h1 {
+      font-size: 2.5rem;
+      margin-top: 24px;
+      color: var(--brand);
+    }
+
+    p {
+      color: var(--muted);
+      font-size: 1.05rem;
+      margin: 16px 0;
+    }
+
+    .cta-btn {
+      background: linear-gradient(180deg, var(--brand), var(--brand-600));
+      color: #0c120a;
+      font-weight: 800;
+      letter-spacing: .2px;
+      padding: 10px 16px;
+      border-radius: 999px;
+      box-shadow: var(--aura);
+      border: none;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    .cta-btn:hover {
+      transform: translateY(-2px);
+      filter: brightness(0.95);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav">
+      <a class="brand" href="https://tntelitebuilders.com">
+        <div class="logo" aria-hidden="true"></div>
+        <strong>TNT</strong>
+        <span>Elite Builders</span>
+      </a>
+    </div>
+  </header>
+<div class="grid-bg" aria-hidden="true"></div>
+  <section class="section">
+    <div class="glass">
+<div class="crane-scene">
+  <div class="crane">
+    <div class="arm"></div>
+    <div class="cable-group">
+      <div class="cable"></div>
+      <div class="hook"></div>
+      <div class="block">404</div>
+    </div>
+  </div>
+</div>
+      <h1>404 — Page Not Found</h1>
+      <p>This page is still under construction… or maybe it never existed.</p>
+      <button class="cta-btn" onclick="location.href='/'">Return Home</button>
+    </div>
+  </section>
+</body>
+</html>
