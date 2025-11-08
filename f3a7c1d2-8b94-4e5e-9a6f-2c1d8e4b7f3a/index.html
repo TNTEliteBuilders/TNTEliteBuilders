@@ -462,12 +462,15 @@ table th:nth-child(4) { text-align: center; }
   border-radius: var(--radius-sm);
 }
 
-.compare-wrap .aft {
+.compare-wrap .aft-mask {
+  position: absolute;
+  top: 0; left: 0;
+  width: 50%; /* initial reveal */
+  height: 100%;
+  overflow: hidden;
   z-index: 2;
-  transform: translateX(50%);
-  transition: transform 0.2s ease;
-  will-change: transform;
-  pointer-events: none;
+  transition: width 0.2s ease;
+  will-change: width;
 }
 
 .compare-wrap .slider {
@@ -487,6 +490,7 @@ table th:nth-child(4) { text-align: center; }
   -webkit-tap-highlight-color: transparent;
   user-select: none;
 }
+
 .compare-wrap .slider::-webkit-slider-thumb {
   appearance: none;
   width: 16px;
@@ -718,31 +722,37 @@ table th:nth-child(4) { text-align: center; }
 
     <div class="gallery-grid">
       <!-- Item 1 -->
-      <div class="gallery-item compare">
-        <div class="compare-wrap">
-          <img src="https://tntelitebuilders.com/images/Bef1.jpeg" class="bef" alt="Before">
-          <img src="https://tntelitebuilders.com/images/Aft1.jpeg" class="aft" alt="After">
-          <input type="range" min="0" max="100" value="50" class="slider">
-        </div>
-      </div>
+<div class="gallery-item compare">
+  <div class="compare-wrap">
+    <img src="https://tntelitebuilders.com/images/Bef1.jpeg" class="bef" alt="Before">
+    <div class="aft-mask">
+      <img src="https://tntelitebuilders.com/images/Aft1.jpeg" class="aft" alt="After">
+    </div>
+    <input type="range" min="0" max="100" value="50" class="slider">
+  </div>
+</div>
 
       <!-- Item 2 -->
-      <div class="gallery-item compare">
-        <div class="compare-wrap">
-          <img src="https://tntelitebuilders.com/images/Bef2.jpeg" class="bef" alt="Before">
-          <img src="https://tntelitebuilders.com/images/Aft2.jpeg" class="aft" alt="After">
-          <input type="range" min="0" max="100" value="50" class="slider">
-        </div>
-      </div>
+<div class="gallery-item compare">
+  <div class="compare-wrap">
+    <img src="https://tntelitebuilders.com/images/Bef2.jpeg" class="bef" alt="Before">
+    <div class="aft-mask">
+      <img src="https://tntelitebuilders.com/images/Aft2.jpeg" class="aft" alt="After">
+    </div>
+    <input type="range" min="0" max="100" value="50" class="slider">
+  </div>
+</div>
 
       <!-- Item 3 -->
-      <div class="gallery-item compare">
-        <div class="compare-wrap">
-          <img src="https://tntelitebuilders.com/images/Bef3.jpeg" class="bef" alt="Before">
-          <img src="https://tntelitebuilders.com/images/Aft3.jpeg" class="aft" alt="After">
-          <input type="range" min="0" max="100" value="50" class="slider">
-        </div>
-      </div>
+<div class="gallery-item compare">
+  <div class="compare-wrap">
+    <img src="https://tntelitebuilders.com/images/Bef3.jpeg" class="bef" alt="Before">
+    <div class="aft-mask">
+      <img src="https://tntelitebuilders.com/images/Aft3.jpeg" class="aft" alt="After">
+    </div>
+    <input type="range" min="0" max="100" value="50" class="slider">
+  </div>
+</div>
 
       <!-- Item 4 -->
       <div class="gallery-item">
@@ -825,12 +835,11 @@ function updateAria(expanded) {
 document.querySelectorAll('.compare-wrap .slider').forEach(slider => {
   slider.addEventListener('input', e => {
     const wrap = e.target.closest('.compare-wrap');
-    const aft = wrap.querySelector('.aft');
+    const mask = wrap.querySelector('.aft-mask');
     const value = e.target.value;
-    aft.style.transform = `translateX(${value}%)`;
+    mask.style.width = `${value}%`;
   });
 });
-  
 
 // ===========================
 // Global shimmer loader + viewport reset
