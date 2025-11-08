@@ -435,70 +435,62 @@ table th:nth-child(4) { text-align: center; }
   height: auto;
   display: block;
 }
-.compare {
+.gallery-item.compare {
+  aspect-ratio: 4 / 3;
   position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-sm);
   background: var(--glass);
   border: var(--glass-border);
-  border-radius: var(--radius-sm);
   box-shadow: var(--glass-shadow);
   backdrop-filter: var(--glass-blur) var(--glass-saturation);
-  overflow: hidden;
+  display: flex;
 }
 
-.compare-wrap {
+.reveal-card {
   position: relative;
+  flex: 1;
+  height: 100%;
   width: 100%;
-  aspect-ratio: 4 / 3;
   overflow: hidden;
+  border-radius: var(--radius-sm);
 }
 
-.compare-wrap .bef,
-.compare-wrap .aft {
+.reveal-card img {
   position: absolute;
   top: 0; left: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
   border-radius: var(--radius-sm);
+  display: block;
 }
 
-.compare-wrap .aft-mask {
-  position: absolute;
-  top: 0; left: 0;
-  width: 50%; /* initial reveal */
-  height: 100%;
-  overflow: hidden;
+.reveal-card .base {
+  z-index: 1;
+}
+
+.reveal-card .overlay {
   z-index: 2;
-  transition: width 0.2s ease;
-  will-change: width;
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
-.compare-wrap .slider {
+.reveal-card.revealed .overlay {
+  opacity: 1;
+}
+
+.reveal-card .label {
   position: absolute;
   bottom: 12px;
   left: 50%;
   transform: translateX(-50%);
-  width: 80%;
-  z-index: 10;
-  appearance: none;
-  height: 4px;
-  background: var(--brand);
-  border-radius: 2px;
-  outline: none;
-  touch-action: pan-y;
-  pointer-events: auto;
-  -webkit-tap-highlight-color: transparent;
-  user-select: none;
-}
-
-.compare-wrap .slider::-webkit-slider-thumb {
-  appearance: none;
-  width: 16px;
-  height: 16px;
-  background: var(--ink);
-  border-radius: 50%;
-  cursor: pointer;
-  box-shadow: var(--aura);
+  background: rgba(0,0,0,0.5);
+  color: var(--ink);
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  z-index: 3;
 }
   /* === Responsive Nav === */
   @media (max-width: 640px) {
@@ -723,34 +715,28 @@ table th:nth-child(4) { text-align: center; }
     <div class="gallery-grid">
       <!-- Item 1 -->
 <div class="gallery-item compare">
-  <div class="compare-wrap">
-    <img src="https://tntelitebuilders.com/images/Bef1.jpeg" class="bef" alt="Before">
-    <div class="aft-mask">
-      <img src="https://tntelitebuilders.com/images/Aft1.jpeg" class="aft" alt="After">
-    </div>
-    <input type="range" min="0" max="100" value="50" class="slider">
+  <div class="reveal-card" onclick="toggleReveal(this)">
+    <img src="https://tntelitebuilders.com/images/Aft1.jpeg" class="base" alt="After">
+    <img src="https://tntelitebuilders.com/images/Bef1.jpeg" class="overlay" alt="Before">
+    <div class="label">Tap to view Before</div>
   </div>
 </div>
 
       <!-- Item 2 -->
 <div class="gallery-item compare">
-  <div class="compare-wrap">
-    <img src="https://tntelitebuilders.com/images/Bef2.jpeg" class="bef" alt="Before">
-    <div class="aft-mask">
-      <img src="https://tntelitebuilders.com/images/Aft2.jpeg" class="aft" alt="After">
-    </div>
-    <input type="range" min="0" max="100" value="50" class="slider">
+  <div class="reveal-card" onclick="toggleReveal(this)">
+    <img src="https://tntelitebuilders.com/images/Aft2.jpeg" class="base" alt="After">
+    <img src="https://tntelitebuilders.com/images/Bef2.jpeg" class="overlay" alt="Before">
+    <div class="label">Tap to view Before</div>
   </div>
 </div>
 
       <!-- Item 3 -->
 <div class="gallery-item compare">
-  <div class="compare-wrap">
-    <img src="https://tntelitebuilders.com/images/Bef3.jpeg" class="bef" alt="Before">
-    <div class="aft-mask">
-      <img src="https://tntelitebuilders.com/images/Aft3.jpeg" class="aft" alt="After">
-    </div>
-    <input type="range" min="0" max="100" value="50" class="slider">
+  <div class="reveal-card" onclick="toggleReveal(this)">
+    <img src="https://tntelitebuilders.com/images/Aft3.jpeg" class="base" alt="After">
+    <img src="https://tntelitebuilders.com/images/Bef3.jpeg" class="overlay" alt="Before">
+    <div class="label">Tap to view Before</div>
   </div>
 </div>
 
@@ -832,14 +818,15 @@ function updateAria(expanded) {
 // ===========================
 // Before-and-after slider
 // ===========================
-document.querySelectorAll('.compare-wrap .slider').forEach(slider => {
-  slider.addEventListener('input', e => {
-    const wrap = e.target.closest('.compare-wrap');
-    const mask = wrap.querySelector('.aft-mask');
-    const value = e.target.value;
-    mask.style.width = `${value}%`;
-  });
-});
+function toggleReveal(el) {
+  el.classList.toggle('revealed');
+  const label = el.querySelector('.label');
+  if (el.classList.contains('revealed')) {
+    label.textContent = 'Tap to view After';
+  } else {
+    label.textContent = 'Tap to view Before';
+  }
+}
 
 // ===========================
 // Global shimmer loader + viewport reset
