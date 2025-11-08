@@ -449,9 +449,11 @@ table th:nth-child(4) { text-align: center; }
   position: relative;
   width: 100%;
   aspect-ratio: 4 / 3;
+  overflow: hidden;
 }
 
-.compare-wrap img {
+.compare-wrap .bef,
+.compare-wrap .aft {
   position: absolute;
   top: 0; left: 0;
   width: 100%;
@@ -460,16 +462,12 @@ table th:nth-child(4) { text-align: center; }
   border-radius: var(--radius-sm);
 }
 
-.compare-wrap img.bef {
-  z-index: 1;
-}
-
-.compare-wrap img.aft {
+.compare-wrap .aft {
   z-index: 2;
-  clip-path: inset(0 50% 0 0);
-  transition: clip-path 0.2s ease;
-  will-change: clip-path; /* Improves performance on iOS */
-  pointer-events: none;   /* Prevents accidental tap interception */
+  transform: translateX(50%);
+  transition: transform 0.2s ease;
+  will-change: transform;
+  pointer-events: none;
 }
 
 .compare-wrap .slider {
@@ -478,14 +476,14 @@ table th:nth-child(4) { text-align: center; }
   left: 50%;
   transform: translateX(-50%);
   width: 80%;
-  z-index: 10; /* Ensure it's above both images */
+  z-index: 10;
   appearance: none;
   height: 4px;
   background: var(--brand);
   border-radius: 2px;
   outline: none;
-  touch-action: pan-y; /* Improves drag behavior on iOS */
-  pointer-events: auto; /* Explicitly allow interaction */
+  touch-action: pan-y;
+  pointer-events: auto;
   -webkit-tap-highlight-color: transparent;
   user-select: none;
 }
@@ -753,7 +751,7 @@ table th:nth-child(4) { text-align: center; }
 
         <!-- Item 5 -->
       <div class="gallery-item">
-        <video controls preload="auto" playsinline muted style="width:100%; height:auto; border-radius: var(--radius-sm);">
+        <video controls preload="auto" playsinline muted poster="https://tntelitebuilders.com/images/Vid1.jpeg" style="width:100%; height:auto; border-radius: var(--radius-sm);">
         <source src="https://tntelitebuilders.com/videos/Vid1.MOV" type="video/mp4">
         Your browser does not support the video tag.
       </video>
@@ -824,14 +822,14 @@ function updateAria(expanded) {
 // ===========================
 // Before-and-after slider
 // ===========================
-  document.querySelectorAll('.compare-wrap .slider').forEach(slider => {
-    slider.addEventListener('input', e => {
-      const wrap = e.target.closest('.compare-wrap');
-      const aft = wrap.querySelector('.aft');
-      const value = e.target.value;
-      aft.style.clipPath = `inset(0 ${100 - value}% 0 0)`;
-    });
+document.querySelectorAll('.compare-wrap .slider').forEach(slider => {
+  slider.addEventListener('input', e => {
+    const wrap = e.target.closest('.compare-wrap');
+    const aft = wrap.querySelector('.aft');
+    const value = e.target.value;
+    aft.style.transform = `translateX(${value}%)`;
   });
+});
   
 
 // ===========================
