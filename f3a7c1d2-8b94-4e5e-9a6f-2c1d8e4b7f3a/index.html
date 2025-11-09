@@ -560,7 +560,7 @@ table th:nth-child(4) { text-align: center; }
   </header>
 
   <!-- TNT Elite Builders Section -->
-  <section id="integration" class="section">
+  <section id="quote" class="section">
     <div class="glass">
       <h2 style="margin-top:0; color:var(--brand)">TNT <span style="color:var(--muted)">Elite Builders</span></h2>
             <p style="color:var(--muted); font-size:1.05rem; line-height:1.6;">
@@ -706,7 +706,7 @@ table th:nth-child(4) { text-align: center; }
       </select>
     </label><br>
 
-    <button type="submit" class="cta-btn" style="margin-top:12px;" data-act="integration">Finalize Request</button>
+    <button type="submit" class="cta-btn" style="margin-top:12px;" data-act="quote">Finalize Request</button>
   </form>
 </div>
 </div>
@@ -952,19 +952,19 @@ function formatPhone(input) {
 // ===========================
 // Pricing configuration
 // ===========================
-const INITIAL_SETUP_FEE = 1500;
+const BASE_FEE = 125;
 
 // Pricing matrix: per-user cost by tier and plan
 const PRICING_MATRIX = {
   "Residential": {
-    monthly: 10,
-    quarterly: 28.50,
-    annual: 108
+    new_construction: 75,
+    renovation: 25,
+    project_management: 50
   },
   "Commercial": {
-    monthly: 20,
-    quarterly: 57,
-    annual: 216
+    new_construction: 125,
+    renovation: 50,
+    project_management: 100
   }
 };
 
@@ -1002,13 +1002,13 @@ async function handleFormSubmit(e) {
   e.preventDefault();
 
   const btn = e.submitter;
-  const act = btn?.dataset.act || 'integration';
+  const act = btn?.dataset.act || 'quote';
 
   // Generate a jobId for this request
-  const jobId = `IntReq-${crypto.randomUUID()}`;
+  const jobId = `TNT-${crypto.randomUUID()}`;
 
   // Look up per-user price from the matrix
-  const perUserPrice = PRICING_MATRIX[selectedTier]?.[selectedPlan] || 0;
+  const stackedprice = PRICING_MATRIX[selectedTier]?.[selectedPlan] || 0;
   const businessInput = document.getElementById('businessName');
 
   const customerData = {
@@ -1021,8 +1021,8 @@ async function handleFormSubmit(e) {
     state: document.getElementById('custState').value,
     tier: selectedTier,
     plan: selectedPlan,
-    setupFee: Number(INITIAL_SETUP_FEE),
-    perUserPrice: Number(perUserPrice)
+    setupFee: Number(BASE_FEE),
+    stackedprice: Number(stackedprice)
   };
 
   // Lock UI
