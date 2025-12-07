@@ -4,16 +4,28 @@
   "start_url": "/index.html",
   "display": "standalone",
   "background_color": "#000000",
-  "theme_color": "#bb0b0bd8",
+  "theme_color": "#bb0b0b",
   "description": "TNT Elite Builders – Custom Homes & Renovations. Craftsmanship that lasts. Service you can count on.",
   "icons": [
     {
-      "src": "/images/icons/apple-touch-icon.png",
-      "sizes": "192x192",
+      "src": "/favicon.png",
+      "sizes": "48x48",
       "type": "image/png"
     },
     {
-      "src": "/images/icons/icon-512.png",
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/Logo.png",
       "sizes": "512x512",
       "type": "image/png"
     }
