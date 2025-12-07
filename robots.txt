@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+
+Disallow: /f3a7c1d2-8b94-4e5e-9a6f-2c1d8e4b7f3a/
+
+# Sitemap reference
+Sitemap: https://tntelitebuilders.com/sitemap.xml
