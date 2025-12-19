@@ -2,8 +2,22 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>TNT Elite Builders — Construction Services & Remodeling</title>
-  <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TNT Elite Builders | Custom Homes, Remodeling & Construction Services</title>
+  <link rel="icon" type="image/x-icon" href="/images/favicon.ico" sizes="48x48">
+  <link rel="icon" type="image/png" href="/images/favicon.png" sizes="192x192">
+  <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">  
+  <meta name="description" content="TNT Elite Builders offers custom homes, remodeling, and construction services. Trusted builders serving Texas with craftsmanship that lasts.">
+  <meta name="color-scheme" content="dark light" />
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="TNT ELite Builders">
+  <meta property="og:title" content="TNT ELite Builders – Custom Homes & Renovations">
+  <meta property="og:description" content="TNT ELite Builders, Craftsmanship that lasts. Service you can count on.">
+  <meta property="og:url" content="https://tntelitebuilders.com">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta property="og:image" content="https://tntelitebuilders.com/images/social-preview.png">
+  <link rel="manifest" href="/manifest.webmanifest">
+  
   <link rel="preload" as="image" href="https://tntelitebuilders.com/images/Aft1.jpeg">
   <link rel="preload" as="image" href="https://tntelitebuilders.com/images/Bef1.jpeg">
   <link rel="preload" as="image" href="https://tntelitebuilders.com/images/Aft2.jpeg">
@@ -14,9 +28,22 @@
   <link rel="preload" as="image" href="https://tntelitebuilders.com/images/NewCon2.jpeg">
   <link rel="preload" as="image" href="https://tntelitebuilders.com/images/Reno1.jpeg">
   <link rel="preload" as="image" href="https://tntelitebuilders.com/images/Reno2.jpeg">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="color-scheme" content="dark light" />
-  <meta property="og:image" content="https://tntelitebuilders.com/images/social-preview.png">
+  
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "TNT Elite Builders",
+  "alternateName": ["TNT", "Elite Builders", "TNT Builders", "Builders"],
+  "url": "https://tntelitebuilders.com",
+  "logo": "https://tntelitebuilders.com/images/logo.png",
+  "sameAs": [
+    "https://www.facebook.com/tntelitebuilders",
+    "https://www.instagram.com/tntelitebuilders"
+  ]
+}
+</script>
 <style>
   /* === Root Variables (Dark Theme) === */
   :root {
@@ -545,19 +572,7 @@ table th:nth-child(4) { text-align: center; }
       </a>
       <nav aria-label="Primary">
         <ul>
-          <li class="dropdown">
-            <button class="link dropdown-toggle" onclick="toggleDropdown()" aria-expanded="false" aria-haspopup="true">Services ▾</button>
-            <ul id="servicesDropdown" class="dropdown-menu">
-              <li><a href="/general">General Contracting</a></li>
-              <li><a href="/residential">Residential Construction</a></li>
-              <li><a href="/commercial">Commercial Construction</a></li>
-              <li><a href="/renovations">Renovations & Remodeling</a></li>
-              <li><a href="/sitedevelopment">Site Development</a></li>
-              <li><a href="/projects/">Project Management</a></li>
-              <li><a href="/permitting/">Permitting & Inspections</a></li>
-            </ul>
-          </li>
-          <li><a class="link" href="/terms">Terms & Conditions</a></li>
+          <li><a class="link" href="mailto:Tyler@tntelitebuilders.com?subject=Project%20Support">Contact Support</a></li>
         </ul>
       </nav>
     </div>
@@ -976,7 +991,7 @@ const PRICING_MATRIX = {
 // Omnitok integration
 // ===========================
 const API = {
-  issueOmniTok: 'https://default6eda43f3fbf04e2b9978b543d9dd31.e3.environment.api.powerplatform.com:443/powerautomate/automations/direct/workflows/21684b9b539d4493bae228eb248acc30/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=bYNkIm5UzKA3f3NNa-1Em788bH0LVLCir_nuVIvBKps' // replace with endpoint
+  issueOmniTok: '' // replace with endpoint
 };
 
 async function getOmniTok(act) {
