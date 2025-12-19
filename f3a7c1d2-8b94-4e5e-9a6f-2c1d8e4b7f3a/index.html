@@ -141,24 +141,19 @@
 
   /* === Background Effects === */
   .bg {
-    position: fixed; inset: 0; z-index: -2;
-    background:
-      radial-gradient(1100px 700px at 12% -10%, #5ac8fa22, transparent 60%),
-      radial-gradient(900px 600px at 110% 10%, rgba(92,140,69,.20), transparent 55%),
-      var(--grad);
-    filter: blur(6px) brightness(.95) saturate(1.05);
-    transform: scale(1.03);
-  }
-  .bg::after {
-    content: ""; position: absolute; inset: 0;
-    background:
-      radial-gradient(900px 500px at 50% -10%, transparent, #000814bb 70%),
-      linear-gradient(to bottom, #00000066, transparent 35%, #00000077 100%);
+    position: fixed;
+    inset: 0;
+    z-index: -1; /* push behind all content */
+    background: url('https://tntelitebuilders.com/images/poster.png') center/cover no-repeat;
+    filter: blur(0px) saturate(1.05) brightness(.9);
+    transform: translateZ(0) scale(1.02);
   }
 
-  #bg-stars {
-    position: fixed; inset: 0; width: 100vw; height: 100vh;
-    z-index: -1; pointer-events: none;
+  .bg::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: none;
   }
 
 
