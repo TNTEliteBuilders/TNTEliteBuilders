@@ -7,13 +7,13 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://tntelitebuilders.com/images</loc>
+    <loc>https://tntelitebuilders.com/images/</loc>
     <lastmod>2025-12-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://tntelitebuilders.com/videos</loc>
+    <loc>https://tntelitebuilders.com/videos/</loc>
     <lastmod>2025-12-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
