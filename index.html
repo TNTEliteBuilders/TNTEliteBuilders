@@ -47,7 +47,7 @@
 <style>
   /* === Root Variables (Dark Theme) === */
   :root {
-    --bg-deep: #000000;
+    --bg-deep: linear-gradient(135deg, rgba(0, 0, 0, 0.12) 0%, rgba(0, 0, 0, 0.16) 40%, rgba(0, 0, 0, 0.20) 100%);
     --bg-accent: #0b1224;
     --glass: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.08) 40%, rgba(255, 255, 255, 0.12) 100%);
     --glass-2: linear-gradient(135deg, #414141 0%, #56585c 40%, #686b70 100%);
@@ -141,27 +141,20 @@
 
   /* === Background Effects === */
   .bg {
-    position: fixed; inset: 0; z-index: -2;
-    background:
-      radial-gradient(1100px 700px at 12% -10%, #5ac8fa22, transparent 60%),
-      radial-gradient(900px 600px at 110% 10%, rgba(92,140,69,.20), transparent 55%),
-      var(--grad);
-    filter: blur(6px) brightness(.95) saturate(1.05);
-    transform: scale(1.03);
+    position: fixed;
+    inset: 0;
+    z-index: -1; /* push behind all content */
+    background: url('https://tntelitebuilders.com/images/poster.png') center/cover no-repeat;
+    filter: blur(8px) saturate(1.05) brightness(.7);
+    transform: translateZ(0);
   }
+
   .bg::after {
-    content: ""; position: absolute; inset: 0;
-    background:
-      radial-gradient(900px 500px at 50% -10%, transparent, #000814bb 70%),
-      linear-gradient(to bottom, #00000066, transparent 35%, #00000077 100%);
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: none;
   }
-
-  #bg-stars {
-    position: fixed; inset: 0; width: 100vw; height: 100vh;
-    z-index: -1; pointer-events: none;
-  }
-
-
 
   
   /* === Header & Navigation === */
@@ -182,6 +175,7 @@
   }
   .logo {
     width: 34px; height: 34px; border-radius: 10px;
+    background-color: #000;
     background-image: url('https://TNTEliteBuilders.com/images/logo.png');
     background-size: contain; background-position: center; background-repeat: no-repeat;
     box-shadow: 0 0 0 2px rgba(197, 8, 8, 0.15), 0 10px 20px rgba(197, 8, 8, 0.15);
@@ -236,7 +230,8 @@
 
   .glass {
     position: relative;
-    background: linear-gradient(180deg, rgba(18,18,18,0.94), rgba(18,18,18,0.92));
+    backdrop-filter: var(--glass-saturation) var(--glass-blur);
+    background: var(--glass);
     border: var(--glass-border);
     border-radius: var(--radius);
     box-shadow: var(--glass-shadow);
@@ -551,6 +546,101 @@ table th:nth-child(4) { text-align: center; }
     color: var(--ink);
     backdrop-filter: var(--glass-saturation) var(--glass-blur);
   }
+
+  /* Contact modal */
+.contact-popup {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+}
+
+.contact-hidden {
+  display: none;
+}
+
+.contact-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(2px);
+}
+
+.contact-card {
+  position: relative;
+  margin: 0 auto;
+  top: 50%;
+  transform: translateY(-50%);
+  max-width: 520px;
+  width: calc(100% - 32px);
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  color: var(--ink);
+  padding: 20px 22px;
+}
+
+.contact-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin: 10px 0 8px;
+  flex-wrap: nowrap;
+}
+
+.contact-email {
+  flex: 1;
+  color: #fff;
+  font-weight: 700;
+  word-break: break-all;
+  border-bottom: 1px dashed #ffffff22;
+}
+
+.contact-copy {
+  margin-left: 12px;
+  flex-shrink: 0;
+  padding: 6px 10px;
+  border-radius: 10px;
+  border: 1px solid #ffffff1f;
+  background: #ffffff10;
+  color: #fff;
+  cursor: pointer;
+  transition: background .2s ease, transform .15s ease;
+}
+
+.contact-copy:hover { background: #ffffff1a; transform: translateY(-1px); }
+
+.contact-actions {
+  margin-top: 12px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* Inline toast inside modal */
+.contact-toast {
+  margin-top: 10px;
+  background: #333;
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 10px;
+  opacity: 0;
+  transition: opacity .25s ease;
+  pointer-events: none;
+}
+
+.contact-toast.show { opacity: 1; }
+
+/* Prevent background scroll when modal is open */
+.body-lock {
+  overflow: hidden;
+}
+
+  @media (max-width: 420px) {
+  .contact-card { padding: 18px; }
+  .contact-email { font-size: .95rem; }
+}
+
 </style>
 </head>
 <body>
@@ -561,7 +651,6 @@ table th:nth-child(4) { text-align: center; }
   </div>
 
   <div class="bg" aria-hidden="true"></div>
-  <canvas id="bg-stars" aria-hidden="true"></canvas>
 
   <header>
     <div class="nav">
@@ -572,12 +661,36 @@ table th:nth-child(4) { text-align: center; }
       </a>
       <nav aria-label="Primary">
         <ul>
-          <li><a class="link" href="mailto:Tyler@tntelitebuilders.com?subject=Project%20Support">Contact Support</a></li>
+          <li><a class="link" id="supportBtn">Contact Support</a></li>
         </ul>
       </nav>
     </div>
   </header>
+  <!-- TNT Elite Builders Contact Modal-->
+    <div id="contactPopup" class="contact-popup contact-hidden" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="contactTitle">
+  <div class="contact-overlay" data-close="true"></div>
+  <div class="contact-card" role="document">
+    <h2 id="contactTitle">Contact Support</h2>
 
+    <div class="contact-row">
+      <a id="supportEmail" class="contact-email" href="mailto:Tyler@tntelitebuilders.com?subject=Project%20Support">
+        Tyler@tntelitebuilders.com
+      </a>
+      <button class="contact-copy" id="copyEmailBtn" type="button" aria-label="Copy email address" title="Copy email">
+        📋
+      </button>
+    </div>
+
+    <div id="contactToast" class="contact-toast" role="status" aria-live="polite">
+      Email address copied to clipboard
+    </div>
+
+    <div class="contact-actions">
+      <button class="btn" id="closeContactBtn" type="button">❌</button>
+    </div>
+  </div>
+</div>
+  
   <!-- TNT Elite Builders Section -->
   <section id="quote" class="section">
     <div class="glass">
@@ -1110,6 +1223,71 @@ async function handleFormSubmit(e) {
     stopLoading();
   }
 }
+
+  (function(){
+    const supportBtn = document.getElementById('supportBtn');
+    const popup = document.getElementById('contactPopup');
+    if (!supportBtn || !popup) return; // safety check if markup not present
+
+    const closeBtn = document.getElementById('closeContactBtn');
+    const overlay = popup.querySelector('.contact-overlay');
+    const emailLink = document.getElementById('supportEmail');
+    const copyBtn = document.getElementById('copyEmailBtn');
+    const toast = document.getElementById('contactToast');
+
+    const EMAIL = 'tyler@tntelitebuilders.com';
+
+    function openPopup() {
+      popup.classList.remove('contact-hidden');
+      popup.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('body-lock');
+      emailLink.focus();
+      document.addEventListener('keydown', keyHandler);
+    }
+
+    function closePopup() {
+      popup.classList.add('contact-hidden');
+      popup.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('body-lock');
+      document.removeEventListener('keydown', keyHandler);
+      supportBtn.focus();
+    }
+
+    function keyHandler(e) {
+      if (e.key === 'Escape') { closePopup(); }
+    }
+
+    function showToast() {
+      toast.classList.add('show');
+      setTimeout(() => { toast.classList.remove('show'); }, 1800);
+    }
+
+    async function copyEmail() {
+      try {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          await navigator.clipboard.writeText(EMAIL);
+          showToast();
+        } else {
+          const tmp = document.createElement('input');
+          tmp.value = EMAIL;
+          document.body.appendChild(tmp);
+          tmp.select();
+          document.execCommand('copy');
+          document.body.removeChild(tmp);
+          showToast();
+        }
+      } catch {
+        // fail silently
+      }
+    }
+
+    supportBtn.addEventListener('click', openPopup);
+    closeBtn.addEventListener('click', closePopup);
+    overlay.addEventListener('click', (e) => {
+      if (e.target.dataset.close) closePopup();
+    });
+    copyBtn.addEventListener('click', copyEmail);
+  })();
 </script>
 </body>
 </html>
