@@ -143,7 +143,7 @@
   .bg {
     position: fixed;
     inset: 0;
-    z-index: 0; /* push behind all content */
+    z-index: -1; /* push behind all content */
     background: url('https://tntelitebuilders.com/images/poster.png') center/cover no-repeat;
     filter: blur(0px) saturate(1.05) brightness(.9);
     transform: translateZ(0) scale(1.02);
@@ -229,7 +229,7 @@
 
   .glass {
     position: relative;
-    background: linear-gradient(180deg, rgba(18,18,18,0.94), rgba(18,18,18,0.92));
+    background: var(--glass);
     border: var(--glass-border);
     border-radius: var(--radius);
     box-shadow: var(--glass-shadow);
