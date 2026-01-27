@@ -1951,10 +1951,13 @@ table th:nth-child(4) { text-align: center; }
   </main>
 
   <footer>
-    <p>© 2025 TNT Elite Builders LLC — Craftsmanship that lasts. Service you can count on.</p>
+    <p>© <span id="y"></span> TNT Elite Builders LLC — Craftsmanship that lasts. Service you can count on.</p>
   </footer>
 
 <script>
+
+  // Year
+    document.getElementById('y').textContent = new Date().getFullYear();
 // ===========================
 // Dropdown handling
 // ===========================
