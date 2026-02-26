@@ -795,6 +795,14 @@ table th:nth-child(4) { text-align: center; }
   word-break: break-all;
   border-bottom: 1px dashed #ffffff22;
 }
+.contact-phone {
+  color: var(--brand);
+  font-weight: 600;
+  text-decoration: none;
+}
+.contact-phone:hover {
+  text-decoration: underline;
+}
 
 .contact-copy {
   margin-left: 12px;
@@ -1469,9 +1477,24 @@ table th:nth-child(4) { text-align: center; }
         📋
       </button>
     </div>
+    <br>
+
+    <!-- Phone Row -->
+    <div class="contact-row">
+      <a id="supportPhone" class="contact-phone" href="tel:7132059634">
+        (713) 205‑9634
+      </a>
+      <button class="contact-copy" id="copyPhoneBtn" type="button" aria-label="Copy phone number" title="Copy phone">
+        📋
+      </button>
+    </div>
 
     <div id="contactToast" class="contact-toast" role="status" aria-live="polite">
       Email address copied to clipboard
+    </div>
+
+    <div id="phoneToast" class="contact-toast" role="status" aria-live="polite">
+      Phone number copied to clipboard
     </div>
 
     <div class="contact-actions">
@@ -1951,7 +1974,7 @@ table th:nth-child(4) { text-align: center; }
   </main>
 
   <footer>
-    <p>© <span id="y"></span> TNT Elite Builders LLC — Craftsmanship that lasts. Service you can count on.</p>
+    <p>© <span id="y"></span> TNT Elite Builders LLC — Craftsmanship that lasts. Service you can count on. Give us a call @ (713) 205‑9634</p>
   </footer>
 
 <script>
@@ -2440,69 +2463,82 @@ async function handleFormSubmit(e) {
 }
 
   (function(){
-    const supportBtn = document.getElementById('supportBtn');
-    const popup = document.getElementById('contactPopup');
-    if (!supportBtn || !popup) return; // safety check if markup not present
+  const supportBtn = document.getElementById('supportBtn');
+  const popup = document.getElementById('contactPopup');
+  if (!supportBtn || !popup) return;
 
-    const closeBtn = document.getElementById('closeContactBtn');
-    const overlay = popup.querySelector('.contact-overlay');
-    const emailLink = document.getElementById('supportEmail');
-    const copyBtn = document.getElementById('copyEmailBtn');
-    const toast = document.getElementById('contactToast');
+  const closeBtn = document.getElementById('closeContactBtn');
+  const overlay = popup.querySelector('.contact-overlay');
 
-    const EMAIL = 'tyler@tntelitebuilders.com';
+  // Email elements
+  const emailLink = document.getElementById('supportEmail');
+  const copyEmailBtn = document.getElementById('copyEmailBtn');
+  const emailToast = document.getElementById('contactToast');
+  const EMAIL = 'tyler@tntelitebuilders.com';
 
-    function openPopup() {
-      popup.classList.remove('contact-hidden');
-      popup.setAttribute('aria-hidden', 'false');
-      document.body.classList.add('body-lock');
-      emailLink.focus();
-      document.addEventListener('keydown', keyHandler);
-    }
+  // Phone elements
+  const phoneLink = document.getElementById('supportPhone');
+  const copyPhoneBtn = document.getElementById('copyPhoneBtn');
+  const phoneToast = document.getElementById('phoneToast');
+  const PHONE = '(281) 555-1234'; // visible format
 
-    function closePopup() {
-      popup.classList.add('contact-hidden');
-      popup.setAttribute('aria-hidden', 'true');
-      document.body.classList.remove('body-lock');
-      document.removeEventListener('keydown', keyHandler);
-      supportBtn.focus();
-    }
+  function openPopup() {
+    popup.classList.remove('contact-hidden');
+    popup.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('body-lock');
+    emailLink.focus();
+    document.addEventListener('keydown', keyHandler);
+  }
 
-    function keyHandler(e) {
-      if (e.key === 'Escape') { closePopup(); }
-    }
+  function closePopup() {
+    popup.classList.add('contact-hidden');
+    popup.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('body-lock');
+    document.removeEventListener('keydown', keyHandler);
+    supportBtn.focus();
+  }
 
-    function showToast() {
-      toast.classList.add('show');
-      setTimeout(() => { toast.classList.remove('show'); }, 1800);
-    }
+  function keyHandler(e) {
+    if (e.key === 'Escape') closePopup();
+  }
 
-    async function copyEmail() {
-      try {
-        if (navigator.clipboard && navigator.clipboard.writeText) {
-          await navigator.clipboard.writeText(EMAIL);
-          showToast();
-        } else {
-          const tmp = document.createElement('input');
-          tmp.value = EMAIL;
-          document.body.appendChild(tmp);
-          tmp.select();
-          document.execCommand('copy');
-          document.body.removeChild(tmp);
-          showToast();
-        }
-      } catch {
-        // fail silently
+  function showToast(toastEl) {
+    toastEl.classList.add('show');
+    setTimeout(() => toastEl.classList.remove('show'), 1800);
+  }
+
+  async function copyText(value, toastEl) {
+    try {
+      if (navigator.clipboard?.writeText) {
+        await navigator.clipboard.writeText(value);
+        showToast(toastEl);
+      } else {
+        const tmp = document.createElement('input');
+        tmp.value = value;
+        document.body.appendChild(tmp);
+        tmp.select();
+        document.execCommand('copy');
+        document.body.removeChild(tmp);
+        showToast(toastEl);
       }
+    } catch {
+      // silent fail
     }
+  }
 
-    supportBtn.addEventListener('click', openPopup);
-    closeBtn.addEventListener('click', closePopup);
-    overlay.addEventListener('click', (e) => {
-      if (e.target.dataset.close) closePopup();
-    });
-    copyBtn.addEventListener('click', copyEmail);
-  })();
+  // Email copy
+  copyEmailBtn.addEventListener('click', () => copyText(EMAIL, emailToast));
+
+  // Phone copy
+  copyPhoneBtn.addEventListener('click', () => copyText(PHONE, phoneToast));
+
+  supportBtn.addEventListener('click', openPopup);
+  closeBtn.addEventListener('click', closePopup);
+
+  overlay.addEventListener('click', (e) => {
+    if (e.target.dataset.close) closePopup();
+  });
+})();
 
   /* ===========================
    SLIDER DISABLE LOGIC
