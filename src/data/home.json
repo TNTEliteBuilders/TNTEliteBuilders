@@ -1,0 +1,103 @@
+{
+  "hero": {
+    "eyebrow": "Custom Homes · Remodeling · Construction",
+    "title": "TNT Elite Builders",
+    "lead": "TNT Elite Builders is a Houston-area custom home builder and remodeling contractor with over 20 years of experience. We deliver high-end craftsmanship on residential and commercial projects that are on time, on budget, and built to last, with insurance coordination handled from start to finish.",
+    "ctas": [
+      { "label": "Request a Quote", "href": "#quote", "primary": true },
+      { "label": "See Our Work", "href": "#projects", "primary": false }
+    ],
+    "spec": {
+      "bar": "At a glance",
+      "rows": [
+        { "k": "Experience", "v": "20+", "small": "YEARS" },
+        { "k": "Work", "v": "Residential", "small": "+ COMMERCIAL" },
+        { "k": "Coverage", "v": "Texas", "small": "STATEWIDE" },
+        { "k": "Insurance", "v": "Coordinated", "small": "START TO FINISH" }
+      ]
+    }
+  },
+  "stats": [
+    { "v": "20+", "k": "Years of experience" },
+    { "v": "Res + Com", "k": "Projects we take on" },
+    { "v": "On time", "k": "On budget, every job" },
+    { "v": "Insured", "k": "Fully insured and coordinated" }
+  ],
+  "services": {
+    "eyebrow": "Services",
+    "title": "What we build",
+    "lead": "One team for the whole build, from the first drawing to the final walkthrough.",
+    "items": [
+      { "icon": "home", "name": "Custom Home Construction", "desc": "Fully custom homes handled end to end, from design and permitting to construction and final walkthrough." },
+      { "icon": "wrench", "name": "Remodeling & Renovation", "desc": "Kitchen, bathroom, and whole-home remodels with modern finishes and structural improvements." },
+      { "icon": "deck", "name": "Outdoor Living & Additions", "desc": "Patios, outdoor kitchens, decks, pergolas, and room additions built to match your home." },
+      { "icon": "building", "name": "Commercial Build-Outs", "desc": "Office, retail, and restaurant build-outs, remodels, and code-compliant improvements." },
+      { "icon": "roof", "name": "Exterior & Structural Repair", "desc": "Roofing, siding, windows, structural repairs, and storm damage restoration." },
+      { "icon": "clipboard", "name": "Construction Management", "desc": "Full project oversight, scheduling, subcontractor coordination, inspections, and budget control." }
+    ]
+  },
+  "why": {
+    "eyebrow": "Why TNT",
+    "title": "Built on trust and precision",
+    "lead": "With over 20 years of experience, we have built a reputation for excellence and reliability. Every project is unique, so we tailor the work to your vision, your budget, and your timeline.",
+    "checks": [
+      { "b": "Client-first general contracting", "span": "Full-service builds with clear, direct communication the whole way through." },
+      { "b": "Deadline-driven management", "span": "Transparent timelines and schedules you can actually plan around." },
+      { "b": "Premium material standards", "span": "Meticulous attention to detail and finishes that hold up over time." },
+      { "b": "Insurance coordination", "span": "We work directly with your provider to reduce stress and speed up approvals." },
+      { "b": "Builds, renovations, commercial", "span": "One team for custom homes, remodels, and commercial upgrades alike." }
+    ]
+  },
+  "process": {
+    "eyebrow": "How it works",
+    "title": "A clear path from idea to keys",
+    "steps": [
+      { "n": "01", "title": "Consult", "desc": "We talk through your project, budget, and timeline, and walk the site." },
+      { "n": "02", "title": "Plan & Permit", "desc": "Design, material selection, and permitting handled for you." },
+      { "n": "03", "title": "Build", "desc": "Coordinated trades, quality control, and inspections at every stage." },
+      { "n": "04", "title": "Walkthrough", "desc": "A final walkthrough and turnover with no hidden surprises." }
+    ]
+  },
+  "projects": {
+    "eyebrow": "Our work",
+    "title": "Project highlights",
+    "intro": "A selection of recent work, from new construction to custom renovations. Each project reflects our commitment to quality, precision, and client satisfaction.",
+    "compare": [
+      { "after": "/images/Aft1.jpeg", "before": "/images/Bef1.jpeg" },
+      { "after": "/images/Aft2.jpeg", "before": "/images/Bef2.jpeg" },
+      { "after": "/images/Aft3.jpeg", "before": "/images/Bef3.jpeg" }
+    ],
+    "images": [
+      { "src": "/images/NewCon1.jpeg", "alt": "Custom home exterior" },
+      { "src": "/images/NewCon2.jpeg", "alt": "New construction exterior" },
+      { "src": "/images/Reno1.jpeg", "alt": "Home renovation" },
+      { "src": "/images/Reno2.jpeg", "alt": "Home renovation" }
+    ],
+    "video": { "src": "/videos/Vid1.MOV", "poster": "/images/Vid1.jpeg" }
+  },
+  "quote": {
+    "eyebrow": "Get started",
+    "title": "Request a quote",
+    "lead": "Tell us about your project. We reply quickly with next steps, and we coordinate directly with your insurance when needed."
+  },
+  "faq": {
+    "eyebrow": "FAQ",
+    "title": "Frequently asked questions",
+    "items": [
+      { "q": "Who builds custom homes in the Houston area?", "a": "TNT Elite Builders builds fully custom homes in the greater Houston, Texas area and surrounding communities. We are a general contractor with over 20 years of experience, handling both residential and commercial projects from design through the final walkthrough." },
+      { "q": "What areas does TNT Elite Builders serve?", "a": "TNT Elite Builders is a service-area contractor serving the greater Houston, Texas area and surrounding communities. Because we come to your project site, we do not run a walk-in storefront, so call us at (713) 205-9634 to confirm we cover your location." },
+      { "q": "Does TNT Elite Builders work with insurance claims?", "a": "Yes. Coordinating insurance claims is one of our specialties, and TNT Elite Builders works directly with your insurance provider from start to finish. This can reduce your stress and speed up approvals on storm damage and structural repairs." },
+      { "q": "How much does it cost to build a custom home or remodel?", "a": "The cost depends on the size, design, materials, and finishes you choose, so there is no single price. TNT Elite Builders provides a detailed quote after reviewing your plans and walking your site." },
+      { "q": "How do I get a quote from TNT Elite Builders?", "a": "You can request a quote using the form on this page or by calling (713) 205-9634. We respond quickly with next steps and coordinate directly with your insurance when a claim is involved." },
+      { "q": "How long has TNT Elite Builders been in business?", "a": "TNT Elite Builders has over 20 years of construction experience. In that time we have built a reputation for quality, reliability, and finishing projects on time and on budget." },
+      { "q": "Is TNT Elite Builders insured?", "a": "Yes. TNT Elite Builders is a fully insured general contractor, and being fully insured protects both your project and your property throughout the build." },
+      { "q": "Can TNT Elite Builders design and build my new home?", "a": "Yes. TNT Elite Builders specializes in fully custom homes and handles the entire process, from design and permitting to construction and the final walkthrough, so you work with one team from the first drawing to the day you get the keys." },
+      { "q": "Can you remodel my kitchen, bathroom, or whole house?", "a": "Yes. TNT Elite Builders handles kitchen, bathroom, and whole-home remodels, including flooring, cabinetry, lighting, and structural improvements, using premium materials and finishes built to last." },
+      { "q": "Do you build patios, decks, and outdoor living spaces?", "a": "Yes. TNT Elite Builders builds patios, outdoor kitchens, decks, pergolas, and room additions designed to match your existing home, either on their own or as part of a larger renovation." },
+      { "q": "Does TNT Elite Builders do commercial construction or tenant improvements?", "a": "Yes. TNT Elite Builders handles commercial build-outs, remodels, and code and ADA upgrades for offices, retail spaces, and restaurants, managing the full project so your business can open on schedule." },
+      { "q": "Do you offer roofing, siding, or storm damage repair?", "a": "Yes. TNT Elite Builders provides roofing, siding, window replacement, structural repairs, and storm damage restoration, and for storm damage we can coordinate the repairs directly with your insurance provider." },
+      { "q": "Can TNT Elite Builders manage my entire construction project?", "a": "Yes. TNT Elite Builders offers full construction management, including scheduling, subcontractor coordination, inspections, and budget control, so one team oversees every stage and you always know where your project stands." },
+      { "q": "What makes TNT Elite Builders different from other contractors?", "a": "TNT Elite Builders combines over 20 years of experience, premium material standards, and direct, client-first communication on every job. Our hands-on insurance-claim coordination is a key differentiator that sets us apart from most general contractors." }
+    ]
+  }
+}

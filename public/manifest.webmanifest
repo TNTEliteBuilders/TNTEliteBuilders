@@ -1,0 +1,21 @@
+{
+  "name": "TNT Elite Builders",
+  "short_name": "TNT Builders",
+  "id": "/",
+  "start_url": "/",
+  "scope": "/",
+  "lang": "en-US",
+  "dir": "ltr",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#e6231a",
+  "categories": ["business", "construction"],
+  "description": "TNT Elite Builders - Custom homes, remodeling, and commercial construction. Craftsmanship that lasts. Service you can count on.",
+  "icons": [
+    { "src": "/images/favicon.ico", "sizes": "48x48", "type": "image/x-icon" },
+    { "src": "/images/favicon.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/images/apple-touch-icon.png", "sizes": "180x180", "type": "image/png", "purpose": "any" },
+    { "src": "/images/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" },
+    { "src": "/images/logo.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "legalName": "TNT Elite Builders LLC",
+  "yearsExperience": 20,
+  "priceRange": "$$",
+  "foundingYear": null,
+  "logo": {
+    "url": "https://tntelitebuilders.com/images/logo.png",
+    "caption": "TNT Elite Builders logo",
+    "width": 512,
+    "height": 512
+  },
+  "image": "https://tntelitebuilders.com/images/social-preview.png",
+  "address": {
+    "addressLocality": null,
+    "addressRegion": "TX",
+    "addressCountry": "US",
+    "postalCode": null
+  },
+  "geo": null,
+  "serviceRadiusMiles": null,
+  "geoRegion": "US-TX",
+  "geoPlacename": null,
+  "areaServed": {
+    "state": "Texas",
+    "counties": [
+      "Harris County",
+      "Fort Bend County",
+      "Montgomery County",
+      "Brazoria County",
+      "Galveston County"
+    ],
+    "cities": [
+      "Houston",
+      "Katy",
+      "Sugar Land",
+      "The Woodlands",
+      "Cypress",
+      "Spring",
+      "Pearland",
+      "Missouri City",
+      "Richmond",
+      "Tomball",
+      "Conroe",
+      "Humble",
+      "Kingwood",
+      "Friendswood",
+      "League City"
+    ]
+  },
+  "hours": null,
+  "sameAs": [],
+  "social": { "twitter": null },
+  "contactType": "customer service",
+  "availableLanguage": ["en-US"],
+  "hasSearch": false,
+  "searchUrlTemplate": null
+}

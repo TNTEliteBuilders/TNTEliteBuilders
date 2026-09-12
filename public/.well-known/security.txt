@@ -1,0 +1,5 @@
+# security.txt for tntelitebuilders.com (RFC 9116)
+Contact: mailto:tyler@tntelitebuilders.com
+Expires: 2027-09-11T00:00:00.000Z
+Preferred-Languages: en
+Canonical: https://tntelitebuilders.com/.well-known/security.txt

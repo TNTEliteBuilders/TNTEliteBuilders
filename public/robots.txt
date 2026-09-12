@@ -1,0 +1,9 @@
+# robots.txt — TNT Elite Builders
+# https://tntelitebuilders.com
+# All crawlers, including AI answer engines (GPTBot, ClaudeBot, PerplexityBot,
+# Google-Extended, Bingbot), are intentionally allowed via the wildcard below.
+
+User-agent: *
+Allow: /
+
+Sitemap: https://tntelitebuilders.com/sitemap.xml

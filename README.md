@@ -1,29 +1,40 @@
-# 📁 Public (Confidential Repository)
+# TNT Elite Builders
 
-This repository contains proprietary, confidential, and privileged materials. All content herein is intended solely for authorized collaborators and stakeholders.
+The official website for TNT Elite Builders, a Texas general contractor specializing in custom homes, remodeling, and commercial construction.
 
-## 🔒 Confidentiality Notice
+Live site: https://tntelitebuilders.com
 
-By accessing or using any part of this repository, you agree to the following:
+## Tech stack
 
-- All files, code, documentation, and assets are confidential and may not be shared, reproduced, or distributed without explicit written permission. Please use one of the various contact methods that can be found [by clicking here](https://fortiviewholdings.com).
-  - Our team will respond with a **"Basic Request"** form that must be returned.
-  - Once approved, we provide free support for integration and infrastructural development.
-- Unauthorized use, disclosure, or duplication of endpoints hosted in this repository is strictly prohibited.
-  - We monitor our hosted endpoints. The **"Basic Request"** form submission also grants an endpoint for testing.
-  - Do not abuse our hosted endpoints. We provide clear **"Usage Terms & Conditions"** once the **"Basic Request"** form is approved, along with your dedicated endpoint.
-    - Free use is limited to the **"Usage Terms & Conditions"** we provide.
-- Any breach of confidentiality may result in **legal action** or termination of access.
-- You may use the information contained within this repository **without** contacting our team or providing a **"Basic Request"** form.  
-  **HOWEVER:** Any person or machine using the information must not use the hosted endpoints without consent.  
-  - If you are unfamiliar with the term "endpoint," simply put: do not copy and paste > post.  
-  - All hosted endpoints have **integrated failure tracking**, and our team is notified of all failures.  
-  - Copying and pasting any logic/code containing an endpoint without removing it prior to posting may result in a failure response.
+- React 18 with React Router 6
+- Vite 5 for the build and dev server, prerendered to static HTML
+- Deployed to GitHub Pages via GitHub Actions
 
-## 🚫 Public Disclosure
+## Local development
 
-This repository is open source and is intended for public release, **excluding endpoints**. Please treat all contents with discretion and care.
+Requires Node 20 or newer.
 
----
+```
+npm install
+npm run dev       # dev server at http://localhost:8080
+npm run build     # production build to dist/
+npm run preview   # preview the production build
+```
 
-For questions regarding access, usage rights, or collaboration, please contact the repository owner directly.
+## Project structure
+
+- `src/` — the React application
+  - `data/` — site content as data: `home.json` (copy, services, FAQs) and `business.json` (contact and service-area facts used in the SEO schema)
+  - `sections/`, `chrome/`, `ui/`, `reviews/` — components
+  - `seo.js` — structured data and meta tags, derived from the data files
+  - `omnitok/` — the quote and review submission endpoint
+- `public/` — static assets served as-is (images, icons, videos, reviews, robots.txt, llms.txt, manifest, CNAME)
+- `tools/` — build-time prerender and sitemap generation
+
+## Editing content
+
+Most changes are data, not code. Update `src/data/home.json` for page copy, services, and FAQs, and `src/data/business.json` for the contact details and service area used across the SEO schema.
+
+## Deploying
+
+Pushing to `main` triggers the GitHub Actions workflow at `.github/workflows/deploy.yml`, which builds the site and publishes `dist/` to GitHub Pages. In the repository settings, Pages must be set to build from GitHub Actions.
